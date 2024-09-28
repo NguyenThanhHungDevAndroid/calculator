@@ -19,10 +19,21 @@ const toLocaleString = (num) =>
 
 const removeSpaces = (num) => num.toString().replace(/\s/g, "");
 
-const math = (a, b, sign) =>
-    sign === "+" ? a + b : sign === "-" ? a - b : sign === "X" ? a * b : a / b;
+const math = (a, b, sign) => {
+    switch (sign) {
+        case "+":
+            return a + b;
+        case "-":
+            return a - b;
+        case "X":
+            return a * b;
+        case "/":
+            return a / b;
+        default:
+            return b * 1;
+    }
+};
 
-const zeroDivisionError = "Can't divide with 0";
 
 const App = () => {
     let [calc, setCalc] = useState({
