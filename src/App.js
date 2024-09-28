@@ -35,9 +35,9 @@ const App = () => {
     const numClickHandler = (e) => {
         const value = e.target.innerHTML;
 
-        if (calc.num === 0 && value === "0") {
-            return;
-        }
+        // if (calc.num === 0 && value === "0") {
+        //     return;
+        // }
 
         if (lastOperation && lastNum !== null) {
             setCalc({
@@ -88,8 +88,12 @@ const App = () => {
     const [lastNum, setLastNum] = useState(null);
 
     const equalsClickHandler = () => {
-        let num = calc.num ? parseFloat(removeSpaces(calc.num)) : 0;
-        let res = calc.res ? parseFloat(removeSpaces(calc.res)) : 0;
+        let num = parseFloat(removeSpaces(calc.num));
+        let res = parseFloat(removeSpaces(calc.res));
+
+        if (calc.num === 0 && calc.sign !== "") {
+            num = res;
+        }
 
         if (lastOperation && lastNum !== null) {
             num = lastNum;
