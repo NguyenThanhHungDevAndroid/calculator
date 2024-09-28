@@ -13,6 +13,7 @@ const btnValues = [
     [0, ".", "="],
 ];
 
+// chuyển đổi số thành chuỗi với dấu phân cách hàng nghìn
 const toLocaleString = (num) =>
     String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, "$1 ");
 
@@ -32,6 +33,7 @@ const App = () => {
 
     let [currentSign, setCurrentSign] = useState("");
 
+    // Khi nhấn vào nút số khác thì dừng tính liên tục
     const numClickHandler = (e) => {
         const value = e.target.innerHTML;
 
@@ -100,22 +102,7 @@ const App = () => {
             calc.sign = lastOperation;
         }
 
-        switch (calc.sign) {
-            case "+":
-                res += num;
-                break;
-            case "-":
-                res -= num;
-                break;
-            case "X":
-                res *= num;
-                break;
-            case "/":
-                res /= num;
-                break;
-            default:
-                break;
-        }
+        res = math(res, num, calc.sign)
 
         setCalc({
             ...calc,
@@ -158,7 +145,7 @@ const App = () => {
     };
 
     const buttonClickHandler = (e, btn) => {
-        if (btn === "C" || calc.res === zeroDivisionError) {
+        if (btn === "C" || calc.res === 'Infinity') {
             resetClickHandler();
         } else if (btn === "+-") {
             invertClickHandler();
