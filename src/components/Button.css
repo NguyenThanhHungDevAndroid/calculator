@@ -2,7 +2,7 @@ button {
   height: 80px;
   width: 80px;
   border: none;
-  background-color: rgb(80, 60, 209);
+  background-color: #3366CC;
   font-size: 24px;
   color: rgb(255, 255, 255);
   font-weight: bold;
@@ -11,18 +11,18 @@ button {
   outline: none;
 }
 button:hover {
-  background-color: rgb(61, 43, 184);
+  background-color: #0033FF;
 }
 .equals {
   grid-column: 3 / 5;
   background-color: rgb(243, 61, 29);
 }
 .equals:hover {
-  background-color: rgb(228, 39, 15);
+  background-color: gray;
 }
 .highlight {
-  background-color: rgb(255, 165, 0); /* Màu cam hoặc màu bạn muốn */
+  background-color: #0033FF; /* Màu cam hoặc màu bạn muốn */
 }
 .highlight:hover {
-  background-color: rgb(202, 111, 0); /* Màu cam hoặc màu bạn muốn */
+  background-color: #0033FF; /* Màu cam hoặc màu bạn muốn */
 }
